@@ -45,6 +45,18 @@ def drawBox(img,bbox):
     cv2.rectangle(img,(x,y),((x+w),(y+h)),(255,0,255),3,1)
     cv2.putText(img,"Tracking",(75,90),cv2.FONT_HERSHEY_SIMPLEX,0.7,(0,255,0),2)
 
+def fileeventhandler():
+    def on_created(self, event):
+        print(f"Hey, {event.src_path} has been created!") 
+        
+    def on_deleted(self, event):
+        print(f"Oops! Someone deleted {event.src_path}!") 
+        
+    def on_modified(self, event):
+        print(f"Hey there!, {event.src_path} has been modified") 
+        
+    def on_moved(self, event):
+        print(f"Someone moved {event.src_path} to {event.dest_path}")
 
 
 def drawBox(img,bbox):
